@@ -1,15 +1,1033 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jana & Tomáš | Svatba 15. června 2026</title>
+    <meta name="description" content="Svatební mikrosite Jany a Tomáše - 15. června 2026">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero video/image overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        
+        .chevron.rotate {
+            transform: rotate(180deg);
+        }
+        
+        /* Form styling */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #f43f5e;
+            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-rose {
+            background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
+        }
+        
+        .gradient-rose-purple {
+            background: linear-gradient(135deg, #fff1f2, #fae8ff);
+        }
+    </style>
+</head>
+<body class="gradient-rose">
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Wedding Microsite Design</title>
-    </head>
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen w-full overflow-hidden">
+        <!-- Background Image (replace with video if needed) -->
+        <div class="absolute inset-0">
+            <img 
+                src="https://images.unsplash.com/photo-1658243862459-145b453dd74e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwY291cGxlJTIwcm9tYW50aWN8ZW58MXx8fHwxNzY3ODgyMTE3fDA&ixlib=rb-4.1.0&q=80&w=1920"
+                alt="Wedding background"
+                class="h-full w-full object-cover"
+            />
+            <!-- Video alternative - uncomment to use -->
+            <!-- 
+            <video autoplay loop muted playsinline class="h-full w-full object-cover">
+                <source src="your-video.mp4" type="video/mp4">
+            </video>
+            -->
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+        <!-- Content -->
+        <div class="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+            <div class="animate-fade-in-up">
+                <h1 class="mb-4 font-serif text-6xl md:text-8xl">
+                    Jana & Tomáš
+                </h1>
+                <p class="mb-2 text-2xl md:text-3xl tracking-wider">
+                    Bereme se!
+                </p>
+                <p class="text-xl md:text-2xl opacity-90">
+                    15. června 2026
+                </p>
+            </div>
+
+            <div class="absolute bottom-8 animate-bounce">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center reveal">
+                <h2 class="text-4xl md:text-5xl font-serif mb-12 text-rose-900">
+                    Odpočítávání do velkého dne
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div class="bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg p-6 shadow-lg">
+                        <div id="days" class="text-5xl md:text-6xl font-bold text-rose-900 mb-2">0</div>
+                        <div class="text-lg text-rose-700">Dní</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg p-6 shadow-lg">
+                        <div id="hours" class="text-5xl md:text-6xl font-bold text-rose-900 mb-2">0</div>
+                        <div class="text-lg text-rose-700">Hodin</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg p-6 shadow-lg">
+                        <div id="minutes" class="text-5xl md:text-6xl font-bold text-rose-900 mb-2">0</div>
+                        <div class="text-lg text-rose-700">Minut</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg p-6 shadow-lg">
+                        <div id="seconds" class="text-5xl md:text-6xl font-bold text-rose-900 mb-2">0</div>
+                        <div class="text-lg text-rose-700">Sekund</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section - Kdy & Kde -->
+    <section id="info" class="py-20 px-4 bg-rose-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Kdy & Kde
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Hlavní informace o naší svatbě
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Ceremony -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1674970538959-e7475d8d376f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+                            alt="Ceremony venue"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-rose-900 mb-6">Obřad</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Datum</p>
+                                    <p class="text-gray-600">Sobota, 15. června 2026</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Čas</p>
+                                    <p class="text-gray-600">15:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Místo</p>
+                                    <p class="text-gray-600">
+                                        Radnice Staroměstské náměstí<br />
+                                        Staroměstské nám. 1, 110 00 Praha 1
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reception -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1604864447155-311ebb0d609f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+                            alt="Reception venue"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-rose-900 mb-6">Oslava</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Datum</p>
+                                    <p class="text-gray-600">Sobota, 15. června 2026</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Čas</p>
+                                    <p class="text-gray-600">17:00 - do rána</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-rose-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Místo</p>
+                                    <p class="text-gray-600">
+                                        Zámek Průhonice<br />
+                                        Průhonice 1, 252 43 Průhonice
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Průběh dne
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Program naší svatby
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Timeline Event 1 -->
+                <div class="relative flex items-center reveal">
+                    <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">15:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">Svatební obřad</h3>
+                            <p class="text-gray-600">Radnice Staroměstské náměstí</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Timeline Event 2 -->
+                <div class="relative flex items-center md:flex-row-reverse reveal">
+                    <div class="flex-1 md:text-left md:pl-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">16:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">Gratulace & Focení</h3>
+                            <p class="text-gray-600">Skupinové a rodinné fotky</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Timeline Event 3 -->
+                <div class="relative flex items-center reveal">
+                    <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">17:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">Příjezd na zámek</h3>
+                            <p class="text-gray-600">Přivítání hostů na zámku Průhonice</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Timeline Event 4 -->
+                <div class="relative flex items-center md:flex-row-reverse reveal">
+                    <div class="flex-1 md:text-left md:pl-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">18:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">Svatební hostina</h3>
+                            <p class="text-gray-600">Tříchodové menu</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Timeline Event 5 -->
+                <div class="relative flex items-center reveal">
+                    <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">20:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">První tanec</h3>
+                            <p class="text-gray-600">Zahájení taneční zábavy</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Timeline Event 6 -->
+                <div class="relative flex items-center md:flex-row-reverse reveal">
+                    <div class="flex-1 md:text-left md:pl-12 pl-16 md:pl-0">
+                        <div class="inline-block bg-rose-100 rounded-lg p-6 shadow-lg">
+                            <p class="text-2xl font-bold text-rose-900 mb-2">21:00</p>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-1">Krájení dortu</h3>
+                            <p class="text-gray-600">Svatební dort a dezerty</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-rose-600 rounded-full shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info Section -->
+    <section id="additional-info" class="py-20 px-4 bg-rose-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Důležité informace
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Vše, co potřebujete vědět
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Parking -->
+                <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg p-8 shadow-lg reveal">
+                    <div class="flex items-start gap-4">
+                        <svg class="w-12 h-12 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 4H5a2 2 0 00-2 2v6a2 2 0 002 2h4m0-8v8m0-8h6m-6 8h6m-6 0v6m6-6v6m-6-6H9m6 0h4a2 2 0 002-2V6a2 2 0 00-2-2h-4"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Parkování</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                K dispozici je parkoviště přímo u zámku. Kapacita je omezená, proto doporučujeme carsharing nebo sdílení aut s ostatními hosty.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accommodation -->
+                <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg p-8 shadow-lg reveal">
+                    <div class="flex items-start gap-4">
+                        <svg class="w-12 h-12 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Ubytování</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Pro hosty z daleka jsme zařídili speciální ceny v hotelu U Zámku (500m od místa). Kontakt: hotel@uzamku.cz, telefon: +420 123 456 789
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dress Code -->
+                <div class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg p-8 shadow-lg reveal">
+                    <div class="flex items-start gap-4">
+                        <svg class="w-12 h-12 text-pink-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Dress Code</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Cocktail / Semi-formal. Dámy: koktejlové šaty. Pánové: oblek s kravatou nebo motýlkem. Barvy: Vítáme pastelové tóny, vyhněte se prosím bílé.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gifts -->
+                <div class="bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg p-8 shadow-lg reveal">
+                    <div class="flex items-start gap-4">
+                        <svg class="w-12 h-12 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Svatební dary</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Váš příchod a radost s námi je největší dar! Pokud nás chcete obdarovat, budeme rádi za příspěvek na svatební cestu. Obálku můžete vhodit do truhlice na místě.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect Section -->
+    <section id="what-to-expect" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Co očekávat
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Připravte se na nezapomenutelný zážitek!
+                </p>
+            </div>
+
+            <!-- Asterix Highlight -->
+            <div class="bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 rounded-xl p-8 md:p-12 shadow-2xl mb-12 border-4 border-amber-300 reveal">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-amber-900 mb-4 flex items-center gap-3">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                            Ančovičky s vodkou!
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-4">
+                            Inspirováni klasickým filmem <strong>Asterix a Obelix: Mise Kleopatra</strong>, 
+                            připravili jsme pro vás speciální překvapení - pravé ančovičky s vodkou! 
+                        </p>
+                        <p class="text-gray-600 italic">
+                            "Kde jsou ty ančovičky?" - Caesar, pravděpodobně
+                        </p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-xl">
+                        <img
+                            src="https://images.unsplash.com/photo-1629846568313-632b6c2836ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800"
+                            alt="Asterix a Obelix inspirace"
+                            class="w-full h-64 object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other expectations -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Skvělé jídlo</h4>
+                    <p class="text-gray-600">
+                        Tříchodové menu inspirované českou i francouzskou kuchyní. 
+                        Vegetariánské a veganské možnosti k dispozici.
+                    </p>
+                </div>
+
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Živá hudba & DJ</h4>
+                    <p class="text-gray-600">
+                        Swing kapela během večeře, následovaná DJ setem 
+                        s hity od 80. let po současnost. Tančit se bude!
+                    </p>
+                </div>
+
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Skvělá zábava</h4>
+                    <p class="text-gray-600">
+                        Připravte se na hry, fotokoutek s rekvizitami 
+                        a spoustu překvapení. Nudit se nebude nikdo!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Fun quote -->
+            <div class="mt-12 text-center reveal">
+                <p class="text-2xl font-serif italic text-gray-600">
+                    "Tato svatba bude šílená, šílená, šíleně dobrá!" 
+                </p>
+                <p class="text-gray-500 mt-2">
+                    - volně podle Asterixe a Obelixe
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="py-20 px-4 gradient-rose-purple">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Potvrzení účasti
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Budeme rádi, když nám dáte vědět, že přijdete!
+                </p>
+                <p class="text-gray-500 mt-2">
+                    Prosíme o potvrzení do 1. května 2026
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-2xl p-8 md:p-12 reveal">
+                <div id="success-message" class="hidden text-center py-12">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-semibold text-gray-900 mb-4">Děkujeme!</h3>
+                    <p class="text-xl text-gray-600">Vaše odpověď byla zaznamenána. Těšíme se na vás!</p>
+                </div>
+
+                <form id="rsvp-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Vaše jméno *
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                                placeholder="Jana Nováková"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Email *
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                                placeholder="jana@email.cz"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="attendance" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Přijdu *
+                            </label>
+                            <select
+                                id="attendance"
+                                name="attendance"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            >
+                                <option value="yes">Ano, s radostí!</option>
+                                <option value="no">Bohužel nemohu</option>
+                                <option value="maybe">Ještě nevím</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="guests" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Počet hostů *
+                            </label>
+                            <select
+                                id="guests"
+                                name="guests"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            >
+                                <option value="1">1 osoba</option>
+                                <option value="2">2 osoby</option>
+                                <option value="3">3 osoby</option>
+                                <option value="4">4 osoby</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="dietary" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Dietní omezení
+                        </label>
+                        <input
+                            type="text"
+                            id="dietary"
+                            name="dietary"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            placeholder="vegetariánské, bezlepkové, alergie..."
+                        />
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Vzkaz pro nás
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none"
+                            placeholder="Něco, co bychom měli vědět..."
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-rose-500 to-pink-500 text-white py-4 px-8 rounded-lg font-semibold text-lg shadow-lg hover:from-rose-600 hover:to-pink-600 transition-all duration-300 flex items-center justify-center gap-3"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                        Odeslat potvrzení
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif text-rose-900 mb-4">
+                    Časté dotazy
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Odpovědi na nejčastější otázky
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Mohu přivést děti?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Samozřejmě! Děti jsou vítány. Připravíme pro ně speciální menu a program. Prosíme ale o informaci v RSVP formuláři, abychom to mohli zohlednit.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Bude zajištěna doprava z Prahy?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Plánujeme autobus z centra Prahy přímo k zámku a zpět. Detaily včetně času odjezdu a přesného místa sběru vám zašleme emailem měsíc před svatbou.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Jaké bude počasí? Bude akce venku?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        V červnu obvykle krásně, ale příprava je všechno! Obřad bude uvnitř radnice. Večerní program bude částečně na terase a částečně ve velkém sále. V případě deště máme vše připravené uvnitř.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Mohu fotit a sdílet na sociálních sítích?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Prosíme o respektování naší prosby - během obřadu fotografování raději nechte na profesionálech. Během oslavy foťte kolik chcete! Použijte prosím hashtag #JanaTomas2026
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Jak přesně se dostanu na místo obřadu i oslavy?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Staroměstská radnice: Metro A - Staroměstská, pěšky 5 min. Zámek Průhonice: Autem 20 min z centra Prahy, parkování na místě. Přesné GPS souřadnice a mapy vám pošleme emailem.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Můžu přijít jen na obřad nebo jen na oslavу?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Ideálně byste byli celý den, ale chápeme, že ne vždy to vyjde. Dejte nám prosím vědět v RSVP, čeho se zúčastníte.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            Kdy musím potvrdit účast?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        Nejpozději do 1. května 2026, prosím. Čím dříve, tím lépe - pomůže nám to s organizací.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-rose-50 transition-colors">
+                        <span class="text-left font-semibold text-gray-900 text-lg">
+                            A co ty ančovičky s vodkou?
+                        </span>
+                        <svg class="chevron w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer bg-rose-50 px-6 py-4 text-gray-700 leading-relaxed">
+                        To je naše speciální překvapení! Nechte se překvapit večer, když uslyšíte 'Za Asterixem a Obelixem!' 🥂
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="mt-12 bg-gradient-to-r from-rose-100 to-pink-100 rounded-lg p-8 reveal">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 text-center">
+                    Máte další otázku?
+                </h3>
+                <p class="text-gray-700 mb-4 text-center">
+                    Neváhejte nás kontaktovat!
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <a
+                        href="mailto:jana.tomas.svatba@email.cz"
+                        class="text-rose-600 hover:text-rose-700 font-semibold"
+                    >
+                        jana.tomas.svatba@email.cz
+                    </a>
+                    <span class="hidden md:inline text-gray-400">|</span>
+                    <a
+                        href="tel:+420123456789"
+                        class="text-rose-600 hover:text-rose-700 font-semibold"
+                    >
+                        +420 123 456 789 (Jana)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-rose-900 to-pink-900 text-white py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <svg class="w-8 h-8 fill-current text-pink-300" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <h3 class="text-3xl font-serif">Jana & Tomáš</h3>
+                <svg class="w-8 h-8 fill-current text-pink-300" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            
+            <p class="text-xl mb-2 text-pink-100">
+                15. června 2026
+            </p>
+            
+            <p class="text-lg mb-8 text-pink-200">
+                Těšíme se na společnou oslavu s vámi!
+            </p>
+
+            <div class="border-t border-pink-700 pt-8 mt-8">
+                <p class="text-sm text-pink-300">
+                    Pro dotazy nás kontaktujte na
+                    <a
+                        href="mailto:jana.tomas.svatba@email.cz"
+                        class="underline hover:text-white transition-colors"
+                    >
+                        jana.tomas.svatba@email.cz
+                    </a>
+                </p>
+                <p class="text-sm text-pink-400 mt-4">
+                    #JanaTomas2026
+                </p>
+            </div>
+
+            <div class="mt-8 text-xs text-pink-400">
+                <p>Vytvořeno s láskou ❤️ pro naši svatbu</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('2026-06-15T15:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('.faq-button');
+        
+        faqButtons.forEach((button, index) => {
+            // Open first FAQ by default
+            if (index === 0) {
+                const answer = button.nextElementSibling;
+                const chevron = button.querySelector('.chevron');
+                answer.classList.add('active');
+                chevron.classList.add('rotate');
+            }
+
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const chevron = button.querySelector('.chevron');
+                const isOpen = answer.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotate'));
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    answer.classList.add('active');
+                    chevron.classList.add('rotate');
+                }
+            });
+        });
+
+        // RSVP Form
+        const rsvpForm = document.getElementById('rsvp-form');
+        const successMessage = document.getElementById('success-message');
+
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(rsvpForm);
+            const data = Object.fromEntries(formData);
+            
+            // Log to console (in production, send to backend)
+            console.log('RSVP Data:', data);
+            
+            // Show success message
+            rsvpForm.style.display = 'none';
+            successMessage.classList.remove('hidden');
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+                rsvpForm.style.display = 'block';
+                successMessage.classList.add('hidden');
+                rsvpForm.reset();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
